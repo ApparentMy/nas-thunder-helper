@@ -1,6 +1,8 @@
 let link = ""
 let webId
 let webUrl
+// 暂时还不支持不进入迅雷下载页面
+const ifEntern = true
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
@@ -35,7 +37,7 @@ function run(){
         if (tabs.length > 0) {
 
         console.log(tabs);
-        chrome.tabs.update(tabs[0].id,{active:true})
+        chrome.tabs.update(tabs[0].id,{active:ifEntern})
         chrome.tabs.reload(tabs[0].id)
         webId = tabs[0].id
         setTimeout(action,200)
@@ -45,7 +47,7 @@ function run(){
         // 从同步存储中调用迅雷界面网址 
         chrome.storage.sync.get(["xunleiUrl"],(result) => {
           if (result.xunleiUrl) {
-            chrome.tabs.create({url:result.xunleiUrl,active:true}).then((tab => {
+            chrome.tabs.create({url:result.xunleiUrl,active:ifEntern}).then((tab => {
               webId = tab.id
               console.log(tab.id);
               // 当页面加载完成后执行
