@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC TO NAS</title>
+    <style>
+    body{
+        background-color: whitesmoke;
+    }
+    .title{
+        font-size: 18px;
+    }
+    .input-title{
+        margin-top: 10px;
+    }
+    #container{
+        width: auto;
+        height: auto;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 3px;
+        border-style: none;
+    }
+    .input-website{
+        margin: 10px;
+        border-radius: 4px;
+        border-style: none;
+        height: 20px;
+
+    }
+    .save{
+        display: flex;
+        justify-self: center;
+        border-radius: 3px;
+        border-style: none;
+        background-color: rgb(10, 152, 24);
+        color: white;
+    }
+    .save:active{
+        background-color: skyblue;
+    }
+</style>
+</head>
+<body>
+    <div id="container">
+        <a class="title">PC TO NAS 配置页面</a><br>
+        <form action="">
+            <label for="input-website" class="input-tiltle">请输入迅雷网页地址</label><br>
+            <input type="text" class="input-website" placeholder="请输入内容" name="input-website">
+            <input type="button" class="save" value="保存">
+        </form>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
