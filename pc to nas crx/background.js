@@ -55,6 +55,7 @@ function run(){
                 console.log(changeInfo.status);
                 
                 if (changeInfo.status === "complete" && tabId === webId) {
+                  chrome.onUpdated.removeListner(pageListener)
                   console.log("加载完成")
                   setTimeout(action,200)
                 }
@@ -174,6 +175,3 @@ function action(){
     args:[link]
   })
 }
-
-
-
