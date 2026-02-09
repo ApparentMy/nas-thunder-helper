@@ -3,14 +3,16 @@
     "name": "PC to NAS File Transfer",
     "version": "1.0.0",
     "description": "A Chrome extension to transfer files from PC to NAS.",
+    "options_page": "settings.html",
     "permissions": [
         "storage",
         "contextMenus",
         "activeTab",
-        "scripting"
+        "scripting",
+        "webRequest"
     ],
      "host_permissions": [
-        "http://192.168.5.2/*"
+        "<all_urls>"
     ],
     "action": {
         "default_popup": "popup/popup.html",

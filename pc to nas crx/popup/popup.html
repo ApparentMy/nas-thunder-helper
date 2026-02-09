@@ -1,56 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PC TO NAS</title>
     <style>
-    body{
+      body {
         background-color: whitesmoke;
-    }
-    .title{
-        font-size: 18px;
-    }
-    .input-title{
-        margin-top: 10px;
-    }
-    #container{
-        width: auto;
+        width: 300px; /* 固定宽度 */
         height: auto;
-        padding: 10px;
-        margin: 10px;
-        border-radius: 3px;
-        border-style: none;
-    }
-    .input-website{
-        margin: 10px;
+      }
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+      .input-title {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #555;
+      }
+      #container {
+        padding: 15px;
+      }
+      .input {
+        margin: 8px 0;
         border-radius: 4px;
-        border-style: none;
-        height: 20px;
-
-    }
-    .save{
+        border: 1px solid #ddd;
+        height: 30px;
+        padding: 0 10px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .btnbox {
         display: flex;
-        justify-self: center;
-        border-radius: 3px;
-        border-style: none;
-        background-color: rgb(10, 152, 24);
+        justify-content: space-between;
+        margin-top: 15px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      button {
+        border-radius: 4px;
+        border: none;
+        padding: 8px 12px;
         color: white;
-    }
-    .save:active{
-        background-color: skyblue;
-    }
-</style>
-</head>
-<body>
+        cursor: pointer;
+        font-size: 14px;
+        flex: 1;
+        min-width: 80px;
+        transition: background-color 0.3s;
+      }
+      .save {
+        background-color: rgb(10, 152, 24);
+      }
+      .save:hover {
+        background-color: rgb(8, 132, 20);
+      }
+      .ai-switch {
+        background-color: #4caf50;
+      }
+      .ai-switch:hover {
+        background-color: #45a049;
+      }
+      .setting {
+        background-color: #2196f3;
+      }
+      .setting:hover {
+        background-color: #1976d2;
+      }
+      .ai-status {
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+        text-align: center;
+        padding: 4px;
+        background-color: #f5f5f5;
+        border-radius: 3px;
+        display: none; /* 默认隐藏，可通过JS控制显示 */
+      }
+    </style>
+  </head>
+  <body>
     <div id="container">
-        <a class="title">PC TO NAS 配置页面</a><br>
-        <form action="">
-            <label for="input-website" class="input-tiltle">请输入迅雷网页地址</label><br>
-            <input type="text" class="input-website" placeholder="请输入内容" name="input-website">
-            <input type="button" class="save" value="保存">
-        </form>
+      <a class="title">PC TO NAS 配置页面</a><br />
+      <form action="">
+        <label for="input-website" class="input-title"
+          >请输入迅雷网页地址</label
+        >
+        <input
+          type="text"
+          class="input"
+          placeholder="请输入迅雷地址"
+          name="xunlei-url"
+        />
+
+        <label for="deepseekapikey" class="input-title">DeepSeek API Key</label>
+        <input
+          type="text"
+          class="input"
+          placeholder="请输入DeepSeekApiKey"
+          name="deepseekapikey"
+        />
+
+        <label for="qwenapikey" class="input-title">Qwen API Key</label>
+        <input
+          type="text"
+          class="input"
+          placeholder="请输入qwenApiKey"
+          name="qwenapikey"
+        />
+
+        <label for="timeout" class="input-title">请求超时时间(秒)</label>
+        <input
+          type="number"
+          class="input"
+          placeholder="请输入timeout"
+          name="timeout"
+          min="10"
+          max="300"
+        />
+      </form>
+
+      <div class="ai-status" id="aiStatus"></div>
+
+      <div class="btnbox">
+        <button type="button" class="save">保存配置</button>
+        <button type="button" class="ai-switch">切换AI</button>
+        <button type="button" class="setting">设置页面</button>
+      </div>
     </div>
     <script src="popup.js"></script>
-</body>
+  </body>
 </html>
